@@ -169,7 +169,7 @@ class ThreadingWSGIServer(ThreadingMixIn, WSGIServer):
 
 if __name__ == '__main__':
     httpd = make_server('', 8000, application, ThreadingWSGIServer)
-    print("Serving on port 8000...")
+    print "Serving on port 8000..."
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
