@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM 498664601760.dkr.ecr.us-east-1.amazonaws.com/python27:latest
 
 # Add sample application
 ADD application.py /tmp/application.py
