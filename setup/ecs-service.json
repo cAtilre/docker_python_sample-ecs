@@ -1,0 +1,29 @@
+{
+    "taskDefinition": "alexpull-python-sample-definition:5",
+    "cluster": "alexpull-ecs-testing-cluster",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:498664601760:targetgroup/alexpull-python-docker-ecs-iptg1/9f3deab14d8ed503",
+            "containerName": "python-sample",
+            "containerPort": 8000
+        }
+    ],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "CODE_DEPLOY"
+    },
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-1b3c667d",
+                "subnet-cafcddeb"
+            ],
+            "securityGroups": [
+                "sg-f1ba13ee"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    }
+}

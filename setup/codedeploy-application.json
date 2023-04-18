@@ -1,0 +1,9 @@
+{
+    "application": {
+        "applicationId": "97112ea7-ea80-41c2-bc61-4f04e4cde154",
+        "applicationName": "alexpull-python-sample-ecs-bg",
+        "createTime": "2023-04-17T16:38:25.491000+02:00",
+        "linkedToGitHub": false,
+        "computePlatform": "ECS"
+    }
+}

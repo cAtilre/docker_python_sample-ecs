@@ -1,0 +1,85 @@
+{
+    "deploymentGroupsInfo": [
+        {
+            "applicationName": "alexpull-python-sample-ecs-bg",
+            "deploymentGroupId": "d13bf2e7-1896-4b2d-9596-f5c1f71d53b6",
+            "deploymentGroupName": "alexpull-python-sample-ecs-bg-dg",
+            "deploymentConfigName": "CodeDeployDefault.ECSAllAtOnce",
+            "ec2TagFilters": [],
+            "onPremisesInstanceTagFilters": [],
+            "autoScalingGroups": [],
+            "serviceRoleArn": "arn:aws:iam::498664601760:role/CodeDeployRole",
+            "targetRevision": {
+                "revisionType": "String",
+                "string": {
+                    "sha256": "4067d4e9666c77a41f33432dcbe884eb2ceaa2e8451ffd5a9f19bdbc394e9cbf"
+                }
+            },
+            "triggerConfigurations": [],
+            "alarmConfiguration": {
+                "enabled": false,
+                "ignorePollAlarmFailure": false,
+                "alarms": []
+            },
+            "deploymentStyle": {
+                "deploymentType": "BLUE_GREEN",
+                "deploymentOption": "WITH_TRAFFIC_CONTROL"
+            },
+            "outdatedInstancesStrategy": "UPDATE",
+            "blueGreenDeploymentConfiguration": {
+                "terminateBlueInstancesOnDeploymentSuccess": {
+                    "action": "TERMINATE",
+                    "terminationWaitTimeInMinutes": 5
+                },
+                "deploymentReadyOption": {
+                    "actionOnTimeout": "CONTINUE_DEPLOYMENT",
+                    "waitTimeInMinutes": 0
+                }
+            },
+            "loadBalancerInfo": {
+                "targetGroupPairInfoList": [
+                    {
+                        "targetGroups": [
+                            {
+                                "name": "alexpull-python-docker-ecs-iptg1"
+                            },
+                            {
+                                "name": "alexpull-python-docker-ecs-iptg2"
+                            }
+                        ],
+                        "prodTrafficRoute": {
+                            "listenerArns": [
+                                "arn:aws:elasticloadbalancing:us-east-1:498664601760:listener/app/alexpull-python-sample-ecs-lb/7ff49359f6fb33be/30cd4412ccd2c971"
+                            ]
+                        },
+                        "testTrafficRoute": {
+                            "listenerArns": [
+                                "arn:aws:elasticloadbalancing:us-east-1:498664601760:listener/app/alexpull-python-sample-ecs-lb/7ff49359f6fb33be/f46ac1e42309afed"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "lastSuccessfulDeployment": {
+                "deploymentId": "d-7Y5CV2IWN",
+                "status": "Succeeded",
+                "endTime": "2023-04-18T19:39:55.893000+02:00",
+                "createTime": "2023-04-18T18:37:43.153000+02:00"
+            },
+            "lastAttemptedDeployment": {
+                "deploymentId": "d-7Y5CV2IWN",
+                "status": "Succeeded",
+                "endTime": "2023-04-18T19:39:55.893000+02:00",
+                "createTime": "2023-04-18T18:37:43.153000+02:00"
+            },
+            "computePlatform": "ECS",
+            "ecsServices": [
+                {
+                    "serviceName": "alexpull-python-sample-ecs-gb-service",
+                    "clusterName": "alexpull-ecs-testing-cluster"
+                }
+            ]
+        }
+    ],
+    "errorMessage": ""
+}

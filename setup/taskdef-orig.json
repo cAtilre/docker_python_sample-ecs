@@ -1,0 +1,54 @@
+{
+        "containerDefinitions": [
+            {
+                "name": "python-sample",
+                "image": "498664601760.dkr.ecr.us-east-1.amazonaws.com/python_sample:latest",
+                "cpu": 0,
+                "portMappings": [
+                    {
+                        "containerPort": 8000,
+                        "hostPort": 8000,
+                        "protocol": "tcp",
+                        "name": "python-sample-8000-tcp",
+                        "appProtocol": "http"
+                    }
+                ],
+                "healthCheck": {
+                    "retries": 3,
+                    "command": [
+                        "CMD-SHELL",
+                        "curl -f http://localhost:8000/ || exit 1"
+                    ],
+                    "timeout": 5,
+                    "interval": 30,
+                    "startPeriod": null
+                },
+                "essential": true,
+                "environment": [],
+                "environmentFiles": [],
+                "mountPoints": [],
+                "volumesFrom": [],
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-create-group": "true",
+                        "awslogs-group": "/ecs/alexpull-python-sample-definition",
+                        "awslogs-region": "us-east-1",
+                        "awslogs-stream-prefix": "ecs"
+                    }
+                }
+            }
+        ],
+        "family": "alexpull-python-sample-definition",
+        "executionRoleArn": "arn:aws:iam::498664601760:role/ecsTaskExecutionRole",
+        "networkMode": "awsvpc",
+        "runtimePlatform": {
+            "cpuArchitecture": "X86_64",
+            "operatingSystemFamily": "LINUX"
+        },
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "cpu": "1024",
+        "memory": "3072"
+}
