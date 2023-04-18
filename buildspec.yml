@@ -20,9 +20,12 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Writing image definitions file...
-      - printf '[{"name":"python-sample","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"python-sample","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json 
+      - printf '{"ImageURI": "%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
 artifacts:
-    files: imagedefinitions.json
+    files:
+      - imagedefinitions.json
+      - imageDetail.json
