@@ -108,7 +108,7 @@ welcome = """
 </head>
 <body id="sample">
   <div class="textColumn">
-    <h1>CongratulationsVERSION2!</h1>
+    <h1>Congratulations!</h1>
     <p>Your Docker Container is now running in Elastic Beanstalk on your own dedicated environment in the AWS Cloud.</p>
     <p>This environment is launched with Elastic Beanstalk Docker Platform</p>
   </div>
