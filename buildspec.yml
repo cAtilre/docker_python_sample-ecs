@@ -27,6 +27,8 @@ phases:
       - echo Writing image definitions file...
       - printf '[{"name":"python-sample","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json 
       - printf '{"ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
+      - mkdir tmp
+      - printf '{"ImageURI":"%s"}' $REPOSITORY_URI:$IMAGE_TAG > tmp/imageDetail.json
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
@@ -36,3 +38,8 @@ artifacts:
     files:
       - imagedefinitions.json
       - imageDetail.json
+    secondary-artifacts:
+      artifact1:
+        files:
+          - tmp/imageDetail.json
+        name: BuildArtifact2
