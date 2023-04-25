@@ -1,5 +1,10 @@
 version: 0.2
 
+env:
+  exported-variables:
+    - IMAGE1_NAME
+    - IMAGE2_NAME
+
 phases:
   pre_build:
     commands:
@@ -25,6 +30,8 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - IMAGE1_NAME=$REPOSITORY_URI:latest
+      - IMAGE2_NAME=$REPOSITORY_URI:$IMAGE_TAG
 artifacts:
     files:
       - imagedefinitions.json
